@@ -1,4 +1,4 @@
 *.suo
-packages/*.*
+packages/*
 bin/
 obj/
