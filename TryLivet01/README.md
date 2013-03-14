@@ -1,14 +1,13 @@
 TryLivet01
 ==========
 
-<ol>
-<li>WPF アプリケーションを新規作成</li>
-<li>ソリューションエクスプローラーでソリューションを選択後、右クリックから「NuGet パッケージの復元の有効化」を選択</li>
-<li>ソリューションエクスプローラーでプロジェクト「TryLivet01」を選択後、右クリックから「NuGet パッケージの管理」を選択</li>
-<li>「Livet Cask」をインストール</li>
-<li>クラスファイル「MainWindowModel.cs」を追加
+1. WPF アプリケーションを新規作成
+2. ソリューションエクスプローラーでソリューションを選択後、右クリックから「NuGet パッケージの復元の有効化」を選択
+3. ソリューションエクスプローラーでプロジェクト「TryLivet01」を選択後、右クリックから「NuGet パッケージの管理」を選択
+4.「Livet Cask」をインストール
+5. クラスファイル「MainWindowModel.cs」を追加
 
-```csharp
+    ```csharp
     using System.Collections.Generic;
     using Livet;
 
@@ -36,12 +35,10 @@ TryLivet01
             }
         }
     }
-```
+    ```
+6. 「MainWindow.xaml」の変更
 
-</li>
-<li>「MainWindow.xaml」の変更
-
-```xml
+    ```xml
     <Window x:Class="TryLivet01.MainWindow"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -54,7 +51,18 @@ TryLivet01
             <TextBlock Text="{Binding Path=Message}"/>
         </Grid>
     </Window>
-```
+    ```
 
-</li>
-</ol>
+Memo
+====
+
+* ViewとViewModelの結びつけはMainWindow.xamlの以下：
+
+    ```xml
+    <Window.DataContext>
+        <vm:MainWindowModel/>
+    </Window.DataContext>
+    ```
+
+* MainWindowModel.Messageを変更していない＝RaisePropertyChangedを呼んでいないので
+  きちんとVとVMが結びついたかどうかまだよくわからない感じ。
