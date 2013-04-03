@@ -1,0 +1,22 @@
+﻿<Window x:Class="TryLivet04.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:TryLivet04.Models"
+        xmlns:vw="clr-namespace:TryLivet04.Views"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:MainWindowModel/>
+    </Window.DataContext>
+    <TabControl ItemsSource="{Binding Items}">
+        <TabControl.ItemTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding Name}"/>
+            </DataTemplate>
+        </TabControl.ItemTemplate>
+        <TabControl.ContentTemplate>
+            <DataTemplate>
+                <vw:ItemView/>
+            </DataTemplate>
+        </TabControl.ContentTemplate>
+    </TabControl>
+</Window>
